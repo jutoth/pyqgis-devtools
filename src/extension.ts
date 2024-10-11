@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
+
   let disposable = vscode.commands.registerCommand('extension.searchPyQGIS', async () => {
     const editor = vscode.window.activeTextEditor;
     if (!editor) {
@@ -18,11 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     const queryUrl = `https://qgis.org/pyqgis/master/search.html?q=${encodeURIComponent(selectedText)}&check_keywords=yes&area=default`;
 
-    // Use dynamic import to load the 'open' module
-    const open = (await import('open')).default;
-
-    // Open the URL in the default web browser
-    open(queryUrl);
+    vscode.env.openExternal(vscode.Uri.parse(queryUrl));
   });
 
   context.subscriptions.push(disposable);
