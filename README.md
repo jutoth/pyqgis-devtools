@@ -12,3 +12,4 @@ Enables an action in the right-click context menu in Python files, that searches
 
 ## Coming soon
 - code snippets
+- setup ide for pyqgis development (setting env paths, enable autocomplete) 
